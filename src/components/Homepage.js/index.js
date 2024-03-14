@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const Homepage = () => {
+function Homepage() {
   const [jokes, setJokes] = useState([]);
 
   useEffect(() => {
@@ -19,21 +19,21 @@ const Homepage = () => {
       <table className="table">
         <thead>
           <tr>
-            <th>#</th>
+            <th>ID</th>
             <th>Joke</th>
           </tr>
         </thead>
         <tbody>
-          {jokes.map((joke, index) => (
-            <tr key={index}>
-              <td>{index + 1}</td>
-              <td>{joke}</td>
+          {jokes.map((joke) => (
+            <tr key={joke.id}>
+              <td>{joke.id}</td>
+              <td>{joke.joke}</td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
   );
-};
+}
 
 export default Homepage;
